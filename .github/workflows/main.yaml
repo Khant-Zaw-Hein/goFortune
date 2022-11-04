@@ -1,0 +1,14 @@
+name : Deploy to railway
+
+on: 
+ push:
+   branches: [main]
+
+jobs: 
+ deploy:
+  runs-on: ubuntu-latest
+
+  steps: 
+  - name : Echo the branch name
+    run : echo "current branch - ${{github.ref_name}}"
+  - name : Echo asdf
