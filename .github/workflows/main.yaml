@@ -11,6 +11,8 @@ jobs:
   steps: 
   - name : Echo the branch name
     run : echo "current branch - ${{github.ref_name}}"
+
+  - name : Action checkout 
     uses : actions/checkout@v3
   
   - name : Try using Node 16
