@@ -26,5 +26,5 @@ jobs:
   - name: Deploy
     run: railway up
     env:
-      RAILWAY_TOKEN: ${{secrets.fortune_token}}
+      RAILWAY_TOKEN: ${{secrets.FORTUNE_TOKEN}}
     
