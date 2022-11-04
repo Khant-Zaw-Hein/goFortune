@@ -17,6 +17,7 @@ jobs:
   
   - name : Try using Node 16
     use : actions/setup-node@v1
+     with : node-version: 16
     
   - name: Installing Railway
     run: npm i -g @railway/cli
