@@ -11,3 +11,17 @@ jobs:
   steps: 
   - name : Echo the branch name
     run : echo "current branch - ${{github.ref_name}}"
+  - uses : actions/checkout@v3
+  
+  - name : Try using Node 16
+    use : actions/setup-node@v1
+    
+  - name: Installing Railway
+    run: npm i -g @railway/cli
+
+  - name: Deploy
+    run: railway up
+
+    env:
+     RAILWAY_TOKEN: ${{secrets.fortune_token}}
+    
