@@ -5,12 +5,8 @@ on:
  push:
    branches: "v[0-9]+.[0-9]+" 
 
-jobs: 
- deploy:
-  runs-on: ubuntu-latest
-  
-  variables:
-  COMMIT_MESSAGE: "#NORUN"
+   variables:
+   COMMIT_MESSAGE: "#NORUN"
 
 workflow:
   rules:
@@ -18,6 +14,10 @@ workflow:
       when: never
     - when: always
 
+jobs: 
+ deploy:
+  runs-on: ubuntu-latest
+  
   steps: 
   - name : Echo the branch name
     run : echo "current branch - ${{github.ref_name}}"
