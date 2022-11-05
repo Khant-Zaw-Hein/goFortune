@@ -35,8 +35,8 @@ jobs:
     with: 
       # tag_name: ${{github.ref}}
       # release_name: ${{github.ref}}
-      tag_name: ${{GITHUB_REF##*/}}
-      release_name: ${{GITHUB_REF##*/}}
+      tag_name: ${{GITHUB_REF#refs/heads/}}
+      release_name: ${{GITHUB_REF#refs/heads/}}
       body: |
         Changes in this Release
         - First Change
