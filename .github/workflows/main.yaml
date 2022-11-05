@@ -5,19 +5,12 @@ on:
  push:
    branches: "v[0-9]+.[0-9]+" 
 
-   variables:
-   COMMIT_MESSAGE: "#NORUN"
-
-workflow:
-  rules:
-    - if: $CI_COMMIT_MESSAGE =~ /^.*COMMIT_MESSAGE/
-      when: never
-    - when: always
-
 jobs: 
  deploy:
   runs-on: ubuntu-latest
-  
+  # assignment 5)
+  if: "!contains(github.event.head_commit.message, '#NORUN')"
+
   steps: 
   - name : Echo the branch name
     run : echo "current branch - ${{github.ref_name}}"
@@ -125,4 +118,11 @@ jobs:
 
 #assignment 5)
 
+#    variables:
+#    COMMIT_MESSAGE: "#NORUN"
 
+# workflow:
+#   rules:
+#     - if: $CI_COMMIT_MESSAGE =~ /^.*COMMIT_MESSAGE/
+#       when: never
+#     - when: always
