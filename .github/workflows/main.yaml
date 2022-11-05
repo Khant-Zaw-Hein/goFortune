@@ -8,6 +8,15 @@ on:
 jobs: 
  deploy:
   runs-on: ubuntu-latest
+  
+  variables:
+  COMMIT_MESSAGE: "#NORUN"
+
+workflow:
+  rules:
+    - if: $CI_COMMIT_MESSAGE =~ /^.*COMMIT_MESSAGE/
+      when: never
+    - when: always
 
   steps: 
   - name : Echo the branch name
@@ -116,11 +125,4 @@ jobs:
 
 #assignment 5)
 
-variables:
-  COMMIT_MESSAGE: "#NORUN"
 
-workflow:
-  rules:
-    - if: $CI_COMMIT_MESSAGE =~ /^.*COMMIT_MESSAGE/
-      when: never
-    - when: always
