@@ -23,10 +23,23 @@ jobs:
   - name: Installing Railway
     run: npm i -g @railway/cli
 
-  - name: Deploy
+  - name: Deploy to railway
     run: railway up
     env:
       RAILWAY_TOKEN: ${{secrets.FORTUNE_TOKEN}}
+
+  - name: Release 
+    uses: actions/create-release@v1
+    env: 
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    with: 
+      tag_name: ${{github.ref}}
+      release_name: Release version with same branch name ${{github.ref}}
+      body: |
+        Changes in this Release
+        - First Change
+      draft: false
+      prerelease: false
 
   - name: Send custom JSON data to Slack workflow
     id: slack
