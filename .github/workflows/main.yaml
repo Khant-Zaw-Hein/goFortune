@@ -9,10 +9,11 @@ jobs:
  deploy:
   runs-on: ubuntu-latest
   # assignment 5)
+  # skip if commit name starts with '#NORUN'
   if: "!contains(github.event.head_commit.message, '#NORUN')"
 
   steps: 
-  - name : Echo the branch name
+  - name : Echo branch name
     run : echo "current branch - ${{github.ref_name}}"
 
 #assignment 2)
@@ -52,8 +53,7 @@ jobs:
   - name: Send custom JSON data to Slack workflow
     id: slack
     uses: slackapi/slack-github-action@v1.23.0
-    with:
-    # For posting a rich message using Block Kit
+    with: 
      payload: |
       {
       "blocks": [
@@ -74,7 +74,7 @@ jobs:
        },
        {
        "type": "mrkdwn",
-       "text": "*Metriculation:*\nA0265074A"
+       "text": "*Matriculation:*\nA0265074A"
        }
        ]
        },
