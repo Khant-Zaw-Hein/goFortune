@@ -44,8 +44,7 @@ jobs:
       release_name: ${{github.ref_name}}
       body: |
         Changes in this Release
-        - First Change
-        - Second Change
+
       draft: false
       prerelease: false
 
@@ -97,7 +96,7 @@ jobs:
       "fields": [
       {
       "type": "mrkdwn",
-      "text": "*Deployment:*\n<${{secrets.FORTUNE_TOKEN}}>"
+      "text": "*Deployment:*\n<${{ secrets.FORTUNE_TOKEN }}>"
       }
       ]
       },
@@ -106,7 +105,7 @@ jobs:
       "fields": [
       {
       "type": "mrkdwn",
-      "text": "<${{secrets.FORTUNE_TOKEN}}|Open Application>"
+      "text": "<${{ secrets.FORTUNE_TOKEN }}|Open Application>"
       }
       ]
       }
